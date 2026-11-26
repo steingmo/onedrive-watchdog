@@ -12,7 +12,7 @@ brew install --cask steingmo/tap/onedrive-watchdog
 ```
 
 **Manually:** download the zip from [Releases](https://github.com/steingmo/onedrive-watchdog/releases),
-open **OneDrive Watchdog** and click **Install**. No admin password needed.
+open **OneDrive Watchdog** and click **Install**. The app moves itself to Applications.
 
 ## Uninstall
 
