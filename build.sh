@@ -13,7 +13,11 @@ ZIP="dist/OneDrive-Watchdog-$VERSION.zip"
 rm -rf dist && mkdir dist
 osacompile -o "$APP" src/main.applescript
 install -m 755 src/install-onedrive-watchdog.sh "$APP/Contents/Resources/"
+# Swap the default script icon for ours (osacompile puts its icon in Assets.car + applet.icns).
+cp AppIcon.icns "$APP/Contents/Resources/applet.icns"
+rm -f "$APP/Contents/Resources/Assets.car"
 P="$APP/Contents/Info.plist"
+/usr/libexec/PlistBuddy -c "Delete :CFBundleIconName" "$P" 2>/dev/null || true
 /usr/libexec/PlistBuddy -c "Add :CFBundleIdentifier string fo.nema.onedrive-watchdog" "$P"
 /usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string $VERSION" "$P"
 /usr/libexec/PlistBuddy -c "Add :CFBundleVersion string $VERSION" "$P"
